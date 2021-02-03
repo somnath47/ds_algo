@@ -41,14 +41,18 @@ The task is to complete the function search() which takes the array arr[], its s
 import math
 
 def search(arr, n, x):
-    pass
+    mid = math.ceil(n/2)
+    if x == arr[mid]: return mid
+    elif arr[mid] < x: return search(arr, mid, x)
+    elif arr[mid] > x: return search(arr, int(n - mid + 1), x)
+    else: return -1
 
 def main():
     T=int(input())
     while(T>0):
-        N=int(input())
-        A=[int(x) for x in input().strip().split()]
-        x=int(input())
+        N = int(input())
+        A = [int(x) for x in input().strip().split()]
+        x = int(input())
         print(search(A,N,x))
         T-=1
 
